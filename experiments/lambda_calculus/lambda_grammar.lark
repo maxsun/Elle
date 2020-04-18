@@ -1,0 +1,16 @@
+?start: expr
+
+atom : "(" expr ")" | NAME 
+expr: app
+    | atom
+    | lambda
+
+lambda : LAMBDA NAME+ NECK expr
+app  : (atom | app | lambda) (atom | lambda)
+
+NAME: /[A-Z|a-z|\d]+/
+LAMBDA: "\\"
+NECK: "."
+
+%import common.WS
+%ignore WS
