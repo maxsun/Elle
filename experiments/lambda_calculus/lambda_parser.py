@@ -65,7 +65,7 @@ LISP_PARSER = lark.Lark(GRAMMAR, parser='lalr',
                         maybe_placeholders=False
                         )
 
-ast = LISP_PARSER.parse('(\\x.x)x')
+ast = LISP_PARSER.parse('(a b c)')
 
 s = transform(ast)
 print(s)

@@ -1,16 +1,19 @@
 ?start: expr
 
-atom : "(" expr ")" | NAME 
-expr: app
-    | atom
-    | lambda
 
-lambda : LAMBDA NAME+ NECK expr
-app  : (atom | app | lambda) (atom | lambda)
+?expr: -> expr
+        | struct
+        | token
 
+struct  : "(" [expr (expr)*] ")"
+
+?token: ESCAPED_STRING -> literal
+    | NAME -> name
+    | "?" -> ambig
+
+LITERAL: /\".+\"/
 NAME: /[A-Z|a-z|\d]+/
-LAMBDA: "\\"
-NECK: "."
-
+    
+%import common.ESCAPED_STRING
 %import common.WS
 %ignore WS
