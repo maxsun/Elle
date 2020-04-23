@@ -149,5 +149,4 @@ S = parse('''
 # print('\n=== INTERPRETING ===')
 
 out = interpret(S)
-print(out)
-
+print(S.pretty())

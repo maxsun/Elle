@@ -2,41 +2,9 @@
 
 ## Overview
 
-Elle is an experimental/toy programming language for building and playing language games.
-
-In $\lambda$-Calculus, expressions denote either functions or application of functions. The syntactic mechanics of computation are implicit within the calculus rather than explicitly described (e.g. $\beta$-reduction). Consequently, $\lambda$-Calculus models computation at the level of abstract algorithms, but not at the level of data-manipulations. 
-
-In Elle, a computation is a context sensitive process mapping input data to output data.
-
-EDIT: a computation doesn't need to be context sensitive, but a representation of one is...
-
-```
-
-Parse :: in Data, ctx Data -> out Computation_Rep
-Computation_Rep :: in Data -> out Data
-
-
-```
-
-
-
-```
-Computation :: in Data, ctx Data -> out Data
-```
-
-Computations are performed by an interpreter which has 2 main jobs:
-
-1. Establishing a semantic baseline; assigning reference to context-free data.  
-2. Performing "valid" symbolic manipulations.
-
-The Elle Interpreter is a tool for performing the computations described in Elle. Since interpretation is a computation, it's also a context sensitive mapping.
-
-```
-# Interpretation is-a Computation
-Interpretation :: in Data, ctx Data -> out Data
-```
-
-Interpretation parses Elle data into representations of computations according to contextual data. These abstractions represent mappings between sets of data, which may be reduced or manipulated according to symbolic rules. Relative to some context, a string of data "denotes" the set of representations which it maps to. Informally, the job of the Elle interpreter is to identify abstract Types/patterns in data and the relationships between them.
+* The Elle interpreter reads in data and spits out data representing possible interpretations.
+* The Elle language is a tool for describing how data may be interpreted.
+* Abstraction is when some data is used to 
 
 
 
